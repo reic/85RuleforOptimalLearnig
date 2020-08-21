@@ -70,11 +70,13 @@ def main(options):
         unknown_stemlist[item].word = stemlist[item].word
         unknown_stemlist[item].counter = stemlist[item].counter
     accident_rate = counter/len(wordall)*100
+    print(''.center(100, '-'))
     print("總共單字數 %2d" % len(stemlist))
     print("不熟悉的單字 %2d" % len(unknown_stemlist))
     print("意外率 %.2f %%" % accident_rate)
-    print(' 不認識的單字 '.center(100, '-'))
+    print(' 不認識的單字 '.center(94, '-'))
     print({item.word: item.counter for item in unknown_stemlist.values()})
+    print(''.center(100, '-'))
     # 將新的單字寫入檔案
     unknownwords_to_file(options['output_filename'], unknown_stemlist)
 
